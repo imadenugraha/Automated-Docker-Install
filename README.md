@@ -23,7 +23,7 @@ OR
 $ sudo mv debian/install-docker /usr/local/bin/ && sudo chmod +x /usr/local/bin/install-docker
 ```
 
-4. Now, you can use this script to install to server
+4. Now, you can use this script to install docker.
 ```bash
 $ install-docker
 ```
