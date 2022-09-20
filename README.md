@@ -1,4 +1,4 @@
-# 🤖 Automated Docker Install on Ubuntu / Debian
+# 🤖 Automated Docker Install on Ubuntu / Deb
 
 ## 📜 Description
 This script will help you to install or update Docker Engine. This script also installs the docker-compose package, so you do not need to install docker-compose separately.
@@ -14,9 +14,13 @@ $ git clone https://github.com/imadenjp/Automated-Docker-Install-Ubuntu.git
 $ cd Automated-Docker-Install-Ubuntu/
 ```
 
-3. Move the file to **/usr/local/bin** and give chmod permission.
+3. Choose script based on your linux distro. Move the file to **/usr/local/bin** and give chmod permission.
 ```bash
-$ sudo mv install-docker /usr/local/bin/ && sudo chmod +x /usr/local/bin/install-docker
+$ sudo mv ubuntu/install-docker /usr/local/bin/ && sudo chmod +x /usr/local/bin/install-docker
+```
+OR
+```bash
+$ sudo mv debian/install-docker /usr/local/bin/ && sudo chmod +x /usr/local/bin/install-docker
 ```
 
 4. Now, you can use this script to install to server
