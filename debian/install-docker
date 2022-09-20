@@ -4,6 +4,7 @@
 # Description: Automated Docker Install on Debian
 
 function install_docker() {
+    
     # Create variable to custom echo colors
     GREEN='\033[1;32m'
     RED='\033[1;31m'
@@ -40,7 +41,7 @@ function install_docker() {
     # Setup docker repository for ubuntu
     echo -e "${GREEN}[*] Set up the repository${CLEAR}"
     
-    if [[ $(sudo apt-get update) > 0 ]];
+    if [[ $(sudo apt-get update) = 1 ]];
     then
         echo -e "${RED}[*] Update failed, please check your system...${CLEAR}\n"
         echo -e "${RED}[*] DOCKER INSTALL FAILED!${CLEAR}"
@@ -63,7 +64,7 @@ function install_docker() {
     # Install Docker Engine and Dependencies
     echo -e "${GREEN}[*] Install Docker Engine${CLEAR}"
 
-    if [[ $(sudo apt-get update) > 0 ]];
+    if [[ $(sudo apt-get update) = 1 ]];
     then
         echo -e "${RED}[*] Update failed, please check your system...${CLEAR}\n"
         echo -e "${RED}[*] DOCKER INSTALL FAILED!${CLEAR}"
@@ -90,5 +91,5 @@ function install_docker() {
     exit 0;
 }
 
-# Run the function
+# Call main function
 install_docker

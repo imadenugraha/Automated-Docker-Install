@@ -4,7 +4,8 @@
 # Description: Automated Docker Install on Ubuntu
 
 function install_docker() {
-    # Create variable to make echo green
+
+    # Create variable to custom echo colors
     GREEN='\033[1;32m'
     RED='\033[1;31m'
     CLEAR='\033[0m'
@@ -40,7 +41,7 @@ function install_docker() {
     # Setup docker repository for ubuntu
     echo -e "${GREEN}[*] Set up the repository${CLEAR}"
     
-    if [[ $(sudo apt-get update) > 0 ]];
+    if [[ $(sudo apt-get update) = 1 ]];
     then
         echo -e "${RED}[*] Update failed, please check your system...${CLEAR}\n"
         echo -e "${RED}[*] DOCKER INSTALL FAILED!${CLEAR}"
@@ -52,7 +53,7 @@ function install_docker() {
     FILE=/etc/apt/keyrings/docker.gpg;
     if [[ -f "$FILE" ]];
     then
-        echo -e "${GREEN}[*] $FILE exist, skipping...${CLEAR}\n"
+        echo -e "${GREEN}[*] File $FILE exist, skipping...${CLEAR}\n"
     else 
         sudo mkdir -p /etc/apt/keyrings;
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
@@ -63,7 +64,7 @@ function install_docker() {
     # Install Docker Engine and Dependencies
     echo -e "${GREEN}[*] Install Docker Engine${CLEAR}"
     
-    if [[ $(sudo apt-get update) > 0 ]];
+    if [[ $(sudo apt-get update) = 1 ]];
     then
         echo -e "${RED}[*] Update failed, please check your system...${CLEAR}\n"
         echo -e "${RED}[*] DOCKER INSTALL FAILED!${CLEAR}"
@@ -90,5 +91,5 @@ function install_docker() {
     return 0;
 }
 
-# Run the function
+# Call main function
 install_docker
