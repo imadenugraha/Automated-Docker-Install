@@ -1,10 +1,10 @@
 #!/bin/bash
 # Author: Moonliez
-# Version: v1.5
+# Version: v1.6
 # Description: Automated Docker Install on Debian
 
 function install_docker() {
-    
+
     # Create variable to custom echo colors
     GREEN='\033[1;32m'
     RED='\033[1;31m'

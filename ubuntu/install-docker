@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Moonliez
-# Version: v1.5
+# Version: v1.6
 # Description: Automated Docker Install on Ubuntu
 
 function install_docker() {
