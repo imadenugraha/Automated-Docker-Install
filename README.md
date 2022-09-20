@@ -1,4 +1,4 @@
-# 🤖 Automated Docker Install on Ubuntu / Deb
+# 🤖 Automated Docker Install on Ubuntu / Debian
 
 ## 📜 Description
 This script will help you to install or update Docker Engine. This script also installs the docker-compose package, so you do not need to install docker-compose separately.
