@@ -6,7 +6,7 @@ This script will help you to install or update Docker Engine. This script also i
 ## 🚀 How to Run this Script
 1. Clone this repository
 ```bash
-$ git clone https://github.com/imadenjp/Automated-Docker-Install-Ubuntu.git
+$ git clone https://github.com/imadenjp/Automated-Docker-Install.git
 ```
 
 2. Go into directory after clone the repository.
