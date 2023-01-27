@@ -21,5 +21,5 @@ $ sudo mv ubuntu/install-docker /usr/local/bin/ && sudo chmod +x /usr/local/bin/
 
 4. Now, you can use this script to install docker.
 ```bash
-$ install-docker
+$ bash install-docker.sh
 ```
