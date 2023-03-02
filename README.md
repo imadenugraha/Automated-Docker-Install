@@ -11,15 +11,10 @@ $ git clone https://github.com/imadenjp/Automated-Docker-Install.git
 
 2. Go into directory after clone the repository.
 ```bash
-$ cd Automated-Docker-Install-Ubuntu/
+$ cd Automated-Docker-Install/
 ```
 
-3. Choose script based on your linux distro. Move the file to **/usr/local/bin** and give chmod permission.
+3. Now, you can use this script to install docker.
 ```bash
-$ sudo mv ubuntu/install-docker /usr/local/bin/ && sudo chmod +x /usr/local/bin/install-docker
-```
-
-4. Now, you can use this script to install docker.
-```bash
-$ bash install-docker.sh
+$ bash Automated-Docker-Install/ubuntu/setup.sh
 ```
