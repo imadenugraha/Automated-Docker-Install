@@ -11,9 +11,9 @@ CLEAR='\033[0m'
 # Disable docker.service and docker.socker to prevent running
 echo -e "${GREEN}[*]Disable old docker.service and docker.socket${GREEN}"
 STATUS=$(systemctl show docker.service --no-page)
-STATUS_TEXT=$(echo ${STATUS} | grep "ActiveState=active" | cut -f2 -d=)
+STATUS_TEXT=$(echo "${STATUS}" | grep "ActiveState=active" | cut -f2 -d=)
 
-if [[ ${STATUS_TEXT} == "active"]];
+if [[ ${STATUS_TEXT} == "active" ]]; 
 then
     sudo systemctl disable --now docker.service
     sudo systemctl disable --now docker.socket
@@ -21,9 +21,9 @@ else
     echo -e "${GREEN}[*] No Docker is Running${CLEAR}\n"
 fi
 
-echo -e "$GREEN[*] Removing Docker old version$CLEAR"
+echo -e "${GREEN}[*] Removing Docker old version${CLEAR}"
 
-if [[ -f "/etc/init.d/docker"]];
+if [[ -f "/etc/init.d/docker" ]];
 then
     sudo apt-get -y remove docker docker-ce-cli docker-engine docker.io containerd runc docker-compose-plugin docker-compose;
     sudo apt-get -y autoremove
@@ -44,7 +44,7 @@ else
 fi
 
 FILE=/etc/apt/keyrings/docker.gpg;
-if [[ -f ${FILE} ]];
+if [[ -f "${FILE}" ]]
 then
     echo -e "${GREEN}[*] File ${FILE} exist, skipping...${CLEAR}\n"
 else 
@@ -57,7 +57,7 @@ fi
 # Install Docker Engine and Dependencies
 echo -e "${GREEN}[*] Install Docker Engine${CLEAR}"
     
-if [[ $(sudo apt-get update) = 1 ]];
+if [[ $(sudo apt-get update) = 1 ]]
 then
     echo -e "${RED}[*] Update failed, please check your system...${CLEAR}\n"
     echo -e "${RED}[*] DOCKER INSTALL FAILED!${CLEAR}"
@@ -75,7 +75,7 @@ echo -e "${GREEN}[*] Docker Started!\n${CLEAR}"
 
 # Configure docker to run rootless
 echo -e "${GREEN}[*] Configure Docker Rootless${CLEAR}"
-sudo usermod -aG docker $USER;
+sudo usermod -aG docker "$USER";
 echo ""
 
 echo -e "${GREEN}[*] DOCKER INSTALLED SUCCESSFULLY!${CLEAR}"
