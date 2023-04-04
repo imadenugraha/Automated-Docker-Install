@@ -1,0 +1,7 @@
+[target-srv]
+<IP Address or Hostname>
+
+[target-srv:vars]
+ansible_user=ansible
+ansible_become=true
+ansible_ssh_private_key_file=~/.ssh/id_rsa

@@ -9,7 +9,7 @@ RED='\033[1;31m'
 CLEAR='\033[0m'
 
 # Disable docker.service and docker.socker to prevent running
-echo -e "${GREEN}[*]Disable old docker.service and docker.socket${GREEN}"
+echo -e "${GREEN}[*] Disable old docker.service and docker.socket${GREEN}"
 STATUS=$(systemctl show docker.service --no-page)
 STATUS_TEXT=$(echo "${STATUS}" | grep "ActiveState=active" | cut -f2 -d=)
 

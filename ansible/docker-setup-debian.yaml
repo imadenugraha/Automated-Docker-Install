@@ -1,0 +1,48 @@
+---
+- name: Setup Docker Engine on Server
+  hosts: target-srv
+  become: yes
+
+  tasks:
+  - name: Update Server
+    ansible.builtin.apt:
+      update_cache: yes
+      state: latest
+
+  - name: Add Docker Repo and Key
+    block:
+    - name: Add Docker Repository Key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        keyring: /etc/apt/keyrings/docker.gpg
+        state: present
+
+    - name: Add Docker Repository
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian {{ansible_distribution_release}} stable"
+        filename: docker
+        state: present
+
+  - name: Install Docker Engine and Compose
+    ansible.builtin.apt:
+      update_cache: yes
+      package:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-compose-plugin
+        - docker-compose
+      clean: yes
+      state: latest
+
+  - name: Enable docker.service and docker.socket
+    ansible.builtin.service:
+      name: docker
+      enabled: yes
+      state: started
+
+  - name: Add User to Docker group
+    ansible.builtin.user:
+      name: <User> # Change this
+      groups: docker
+      append: yes
